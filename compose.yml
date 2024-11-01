@@ -1,0 +1,8 @@
+services:
+  app:
+    container_name: allauth_keycloak_example
+    image: mcr.microsoft.com/devcontainers/python:1-3.12-bullseye
+    working_dir: /workspace
+    tty: true
+    volumes:
+      - .:/workspace:cached
