@@ -151,3 +151,6 @@ SOCIALACCOUNT_PROVIDERS = {
         ]
     }
 }
+
+EMAIL_HOST = "mailhog.private"
+EMAIL_PORT = 1025
