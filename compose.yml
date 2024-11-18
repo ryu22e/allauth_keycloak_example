@@ -11,10 +11,10 @@ services:
     image: quay.io/keycloak/keycloak:26.0.4
     ports:
       - 8080:8080
-    command:
-      - "start-dev"
+    command: ["start-dev", "--import-realm"]
     volumes:
       - keycloak-volume:/opt/keycloak/data
+      - ${LOCAL_WORKSPACE_FOLDER:-./keycloak}:/opt/keycloak/data/import:ro
     restart: always
     networks:
       default:
