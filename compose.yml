@@ -23,6 +23,17 @@ services:
     environment:
       - KC_BOOTSTRAP_ADMIN_USERNAME=admin
       - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
+  mailhog:
+    container_name: mailhog
+    image: mailhog/mailhog:v1.0.1
+    ports:
+      - 1025:1025
+      - 8025:8025
+    networks:
+      default:
+        aliases:
+          - mailhog.private
+    restart: always
 
 volumes:
   keycloak-volume:
