@@ -797,7 +797,7 @@
       "clientId": "testclient",
       "name": "Test client",
       "description": "",
-      "rootUrl": "http://localhost:8000/",
+      "rootUrl": "",
       "adminUrl": "",
       "baseUrl": "",
       "surrogateAuthRequired": false,
@@ -806,7 +806,8 @@
       "clientAuthenticatorType": "client-secret",
       "secret": "xHl2uvQyJY9HPQTs55LGgJoB7CC8i0H8",
       "redirectUris": [
-        "accounts/oidc/keycloak/login/callback/"
+        "http://127.0.0.1:8000/accounts/oidc/keycloak/login/callback/",
+        "http://localhost:8000/accounts/oidc/keycloak/login/callback/"
       ],
       "webOrigins": [
         ""
@@ -828,6 +829,7 @@
         "backchannel.logout.session.required": "true",
         "oauth2.device.authorization.grant.enabled": "false",
         "display.on.consent.screen": "false",
+        "use.jwks.url": "false",
         "backchannel.logout.revoke.offline.tokens": "false"
       },
       "authenticationFlowBindingOverrides": {},
@@ -2338,7 +2340,7 @@
     "cibaInterval": "5",
     "realmReusableOtpCode": "false"
   },
-  "keycloakVersion": "26.0.4",
+  "keycloakVersion": "26.0.5",
   "userManagedAccessAllowed": false,
   "organizationsEnabled": false,
   "clientProfiles": {
