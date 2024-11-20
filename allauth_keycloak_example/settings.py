@@ -61,7 +61,9 @@ ROOT_URLCONF = "allauth_keycloak_example.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [
+            BASE_DIR / "templates",
+        ],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -151,6 +153,18 @@ SOCIALACCOUNT_PROVIDERS = {
         ]
     }
 }
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ACCOUNT_EMAIL_REQUIRED = True
 
+LOGIN_REDIRECT_URL = "index"
+SIGNUP_REDIRECT_URL = "index"
+LOGOUT_REDIRECT_URL = "index"
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "mailhog.private"
 EMAIL_PORT = 1025
+EMAIL_USE_TLS = False
+EMAIL_USE_SSL = False
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""

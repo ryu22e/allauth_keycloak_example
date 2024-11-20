@@ -1,0 +1,15 @@
+<html>
+<head>
+    <title>allauth_keycloak_example</title>
+</head>
+    {% if user.is_authenticated %}
+        <h1>Welcome, {{ user.username }}!</h1>
+        <form action="{% url 'account_logout' %}" method="POST">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+    {% else %}
+        <h1>Welcome, guest!</h1>
+        <a href="{% url 'account_login' %}">Login</a>
+    {% endif %}
+</html>

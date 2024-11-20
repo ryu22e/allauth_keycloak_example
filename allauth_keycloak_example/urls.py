@@ -19,10 +19,13 @@ from django.contrib import admin
 from django.urls import path, include
 from allauth.account.decorators import secure_admin_login
 
+from . import views
+
 admin.autodiscover()
 admin.site.login = secure_admin_login(admin.site.login)
 
 urlpatterns = [
+    path("", views.IndexView.as_view(), name="index"),
     path("accounts/", include("allauth.urls")),
     path("admin/", admin.site.urls),
 ]
