@@ -2,6 +2,7 @@
 <head>
     <title>allauth_keycloak_example</title>
 </head>
+<body>
     {% if user.is_authenticated %}
         <h1>Welcome, {{ user.username }}!</h1>
         <form action="{% url 'account_logout' %}" method="POST">
@@ -12,4 +13,6 @@
         <h1>Welcome, guest!</h1>
         <a href="{% url 'account_login' %}">Login</a>
     {% endif %}
+    
+</body>
 </html>
