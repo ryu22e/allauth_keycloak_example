@@ -8,7 +8,7 @@ services:
       - .:/workspace:cached
     depends_on:
       - keycloak
-      - mailhog
+      - mailpit
   keycloak:
     container_name: keycloak
     image: quay.io/keycloak/keycloak:26.0
@@ -26,17 +26,22 @@ services:
     environment:
       - KC_BOOTSTRAP_ADMIN_USERNAME=admin
       - KC_BOOTSTRAP_ADMIN_PASSWORD=admin
-  mailhog:
-    container_name: mailhog
-    image: mailhog/mailhog:v1.0.1
+  mailpit:
+    container_name: mailpit
+    image: axllent/mailpit:v1.21
     ports:
       - 1025:1025
       - 8025:8025
+    volumes:
+      - mailpit-volume:/data
     networks:
       default:
         aliases:
-          - mailhog.private
+          - mailpit.private
     restart: always
+    environment:
+      - MP_DATA_FILE=/data/mailpit.db
 
 volumes:
   keycloak-volume:
+  mailpit-volume:
